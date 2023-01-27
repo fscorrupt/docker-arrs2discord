@@ -1,0 +1,16 @@
+---
+version: "3"
+services:
+  arrs2discord:
+    hostname: "arrs2discord"
+    container_name: "arrs2discord"
+    environment:
+      - "PGID=1000"
+      - "PUID=1000"
+      - "TZ=Europe/Berlin"
+      - "UMASK=022"
+      - "TERM=xterm"
+    image: "ghcr.io/fscorrupt/docker-arrs2discord:latest"
+    restart: "unless-stopped"
+    volumes:
+      - "/opt/appdata/arrs2discord/config:/config:rw"
